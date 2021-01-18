@@ -1,34 +1,34 @@
-//Write a program to find input number is Prime or not
+//WAP to determine if a given number is prime or not
 #include<stdio.h>
 #include<math.h>
+
+int num(int n);
 int main()
 {
-    int n, flag=0;
-    printf("Enter the number\n");
+    int n;
+    printf("Enter the number =\n");
     scanf("%d",&n);
 
-    if(n<=1){
-        flag = 1;
+    if(num(n))
+    printf("%d is a prime number",n);
+    else
+    printf("%d is not a prime number",n);
+
+    return 0;
+}
+
+int num(int n){
+    int flag = 0;
+
+    if(n<2)
+    return 0;
+
+    for(int i = 1; i<= sqrt(n); i++ ){
+        if(n%i==0)
+        flag++;
     }
-    else if(n==2);
-    else if(n>2){
-        if(n%2==0){
-            flag = 1;
-        }
-        else{
-            for(int i = 3; i <= sqrt(n); i++){
-                if(n%i==0){
-                    flag = 1;
-                    break ;
-                }
-            }
-        }
-    }
-    if(flag == 0){
-        printf("%d is prime",n);
-    }
-    else{
-        printf("%d is not prime",n);
-    }
+    if(flag==1)
+    return 1;
+    else 
     return 0;
 }
